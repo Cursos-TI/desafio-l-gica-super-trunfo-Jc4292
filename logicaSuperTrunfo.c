@@ -38,13 +38,13 @@ int main() {
 	printf("carta 1:\n");
 
 	printf("digite um estado (primeira letra):\n");
-	scanf(" %s", &c1_estado);
+	scanf(" %c", &c1_estado);
 
 	printf("digite o código: (de 01 a 04)\n");
-	scanf( " %s", c1_codigo);
+	scanf( " %s", &c1_codigo);
 
 	printf("digite o nome da cidade:\n");
-	scanf(" %s", c1_nome);
+	scanf(" %s", &c1_nome);
 
 	printf("digite o tamanho da população\n");
 	scanf(" %d", &c1_populacao);
@@ -62,13 +62,13 @@ int main() {
 	printf("carta 2:\n\n");
 
 	printf("digite um estado (primeira letra):\n");
-	scanf(" %s", &c2_estado);
+	scanf(" %c", &c2_estado);
 
 	printf("digite o código: (de 01 a 04)\n");
-	scanf( " %s", c2_codigo);
+	scanf( " %s", &c2_codigo);
 
 	printf("digite o nome da cidade:\n");
-	scanf(" %s", c2_nome);
+	scanf(" %s", &c2_nome);
 
 	printf("digite o tamanho da população\n");
 	scanf(" %d", &c2_populacao);
@@ -79,32 +79,34 @@ int main() {
 	printf("digite a área (kilometros quadrados)\n");
 	scanf(" %f", &c2_area);
 
-	printf("digite a quantidade de pontos turisticos\n");
+	printf("digite a quantidade de pontos turisticos\n\n");
 	scanf(" %d", &c2_pontos_turisticos);
 
     //--------Calculo---------
 
 	c1_densidade = (float) c1_populacao / c1_area;
-	c1_pibpc = (float) c1_pib / c1_populacao;
+	c1_pibpc = c1_pib / (float) c1_populacao;
 
 	c2_densidade = (float) c2_populacao / c2_area;
-	c2_pibpc = (float) c2_pib / c2_populacao;
+	c2_pibpc = c2_pib / (float) c2_populacao;
 
     // Comparação de Cartas:
     // Desenvolva a lógica de comparação entre duas cartas.
     // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
 
+    printf("comparação: \n\npopulação carta 1 - %s: %d\npopulação carta 2 - %s: %d\n\n", c1_nome, c1_populacao, c2_nome, c2_populacao);
+
     if (c1_populacao>c2_populacao) {
-        printf("Cidade 1 tem maior população.\n");
-        printf("Carta 1 Ganhou!\n");
+        printf("Cidade 1 tem maior população.\n\n");
+        printf("---Carta 1 Ganhou!---\n");
     }
     else if (c1_populacao<c2_populacao) {
-        printf("Cidade 2 tem maior população.\n");
-        printf("Carta 2 Ganhou!\n");
+        printf("Cidade 2 tem maior população.\n\n");
+        printf("---Carta 2 Ganhou!---\n");
     }
     else{
         printf("Cidade 2 tem a mesma quant. de população.\n");
-        printf("Empate!\n");
+        printf("---Empate!---\n");
     }
     
     // if (c1_area>c2_area)
